@@ -4,7 +4,7 @@ class HerosController < ApplicationController
         person = Hero.create(hero_params)
 
         if person.valid?
-            render json: person, status: 200
+            render json: person, status: created
         else
             render json: {errors: "Failed"}
         end
@@ -18,8 +18,7 @@ class HerosController < ApplicationController
         hero = Hero.find(params[:id])
 
         if hero
-            render json: hero, status: 200, serializer: HeroPowerSerializer
-
+            render json: hero, status: 200, include: ["powers"], except: [:created_at, :updated_at]
         else
             render json: {errors: "Hero not found"}, status: :not_found
         end
