@@ -110,3 +110,144 @@ No serializer found for resource: #<Hero id: 1, name: "Ian", super_name: "Super 
 Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.8ms | Allocations: 2728)
 
 
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-23 22:02:04 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"1", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hero (0.28ms)
+Completed 200 OK in 6ms (Views: 1.0ms | ActiveRecord: 1.0ms | Allocations: 2525)
+
+
+Started GET "/heros/2" for 127.0.0.1 at 2023-03-23 22:02:08 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"2", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.1ms | Allocations: 499)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Hero with 'id'=2):
+  
+app/controllers/heros_controller.rb:18:in `show'
+Started GET "/heros/2" for 127.0.0.1 at 2023-03-23 22:02:38 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"2", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 1.4ms | Allocations: 777)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Hero with 'id'=2):
+  
+app/controllers/heros_controller.rb:18:in `show'
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-23 22:02:43 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"1", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hero (0.4ms)
+Completed 200 OK in 8ms (Views: 2.9ms | ActiveRecord: 0.1ms | Allocations: 1910)
+
+
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-23 22:03:24 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"1", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hero (21.12ms)
+Completed 500 Internal Server Error in 31ms (ActiveRecord: 2.5ms | Allocations: 5106)
+
+
+  
+NoMethodError (undefined method `Powers' for #<Hero:0x00007fb968b54680>
+Did you mean?  powers=):
+  
+app/controllers/heros_controller.rb:21:in `show'
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-23 22:07:18 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"1", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+Completed 500 Internal Server Error in 13ms (ActiveRecord: 1.7ms | Allocations: 3528)
+
+
+  
+NameError (uninitialized constant HerosController::HeroPowerSerializer
+Did you mean?  HeroPowersController):
+  
+app/controllers/heros_controller.rb:21:in `show'
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-23 22:08:06 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"1", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+Completed 500 Internal Server Error in 27ms (ActiveRecord: 1.0ms | Allocations: 34689)
+
+
+  
+SyntaxError (/home/mose/Development/code/Phase 4/Project/Hero-api/app/serializers/hero_power_serializer.rb:5: syntax error, unexpected local variable or method, expecting `end'
+  has_many :powers through: :hero_powers
+                   ^~~~~~~
+):
+  
+app/serializers/hero_power_serializer.rb:5: syntax error, unexpected local variable or method, expecting `end'
+app/serializers/hero_power_serializer.rb:5: syntax error, unexpected local variable or method, expecting `end'
+app/controllers/heros_controller.rb:21:in `show'
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-23 22:08:28 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"1", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mHeroPower Load (0.2ms)[0m  [1m[34mSELECT "hero_powers".* FROM "hero_powers" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 1]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerSerializer with ActiveModelSerializers::Adapter::Attributes (27.65ms)
+Completed 200 OK in 48ms (Views: 32.1ms | ActiveRecord: 2.1ms | Allocations: 18056)
+
+
+Started GET "/heros" for 127.0.0.1 at 2023-03-23 22:08:38 +0300
+Processing by HerosController#index as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heros_controller.rb:14:in `index'
+No serializer found for resource: #<Hero id: 1, name: "Ian", super_name: "Super man", created_at: "2023-03-23 18:22:17.994496000 +0000", updated_at: "2023-03-23 18:22:17.994496000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Hero::ActiveRecord_Relation (0.36ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 0.3ms | Allocations: 1155)
+
+
+Started GET "/heros" for 127.0.0.1 at 2023-03-23 22:09:12 +0300
+Processing by HerosController#index as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heros_controller.rb:14:in `index'
+No serializer found for resource: #<Hero id: 1, name: "Ian", super_name: "Super man", created_at: "2023-03-23 18:22:17.994496000 +0000", updated_at: "2023-03-23 18:22:17.994496000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Hero::ActiveRecord_Relation (0.14ms)
+Completed 200 OK in 5ms (Views: 4.2ms | ActiveRecord: 1.3ms | Allocations: 2225)
+
+
+Started GET "/heros/2" for 127.0.0.1 at 2023-03-23 22:09:19 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"2", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+Completed 404 Not Found in 2ms (ActiveRecord: 0.2ms | Allocations: 632)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Hero with 'id'=2):
+  
+app/controllers/heros_controller.rb:18:in `show'
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-23 22:09:24 +0300
+Processing by HerosController#show as */*
+  Parameters: {"name"=>"Ian", "super_name"=>"Super man", "id"=>"1", "hero"=>{"name"=>"Ian", "super_name"=>"Super man"}}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mHeroPower Load (0.2ms)[0m  [1m[34mSELECT "hero_powers".* FROM "hero_powers" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 1]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerSerializer with ActiveModelSerializers::Adapter::Attributes (10.72ms)
+Completed 200 OK in 13ms (Views: 10.6ms | ActiveRecord: 0.7ms | Allocations: 6153)
+
+

@@ -11,7 +11,18 @@ class HerosController < ApplicationController
     end
 
     def index
-        render json: Hero.all, status: 200
+        render json: Hero.all, status: 200, except: [:created_at, :updated_at]
+    end
+
+    def show
+        hero = Hero.find(params[:id])
+
+        if hero
+            render json: hero, status: 200, serializer: HeroPowerSerializer
+
+        else
+            render json: {errors: "Hero not found"}, status: :not_found
+        end
     end
 
     private
