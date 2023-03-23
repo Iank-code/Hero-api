@@ -12,7 +12,7 @@
 
 ActiveRecord::Schema[7.0].define(version: 2023_03_23_164124) do
   create_table "hero_powers", force: :cascade do |t|
-    t.integer "strength"
+    t.integer "strength", default: 0, null: false
     t.integer "power_id", null: false
     t.integer "hero_id", null: false
     t.datetime "created_at", null: false
@@ -22,15 +22,15 @@ ActiveRecord::Schema[7.0].define(version: 2023_03_23_164124) do
   end
 
   create_table "heros", force: :cascade do |t|
-    t.string "name"
-    t.string "super_name"
+    t.string "name", null: false
+    t.string "super_name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "powers", force: :cascade do |t|
-    t.string "name"
-    t.string "description"
+    t.string "name", null: false
+    t.string "description", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
