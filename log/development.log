@@ -2297,3 +2297,144 @@ Processing by HeroPowersController#index as */*
 Completed 200 OK in 2ms (Views: 2.0ms | ActiveRecord: 0.1ms | Allocations: 1040)
 
 
+Started GET "/hero" for 127.0.0.1 at 2023-03-24 21:47:08 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/hero"):
+  
+Started GET "/heros" for 127.0.0.1 at 2023-03-24 21:47:11 +0300
+Processing by HerosController#index as */*
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heros_controller.rb:14:in `index'
+No serializer found for resource: #<Hero id: 1, name: "Ian", super_name: "Flash", created_at: "2023-03-24 18:10:03.895964000 +0000", updated_at: "2023-03-24 18:10:03.895964000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Hero::ActiveRecord_Relation (0.22ms)
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.3ms | Allocations: 925)
+
+
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-24 21:47:16 +0300
+Processing by HerosController#show as */*
+  Parameters: {"id"=>"1"}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 1]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hero (19.13ms)
+Completed 200 OK in 22ms (Views: 19.4ms | ActiveRecord: 0.4ms | Allocations: 6778)
+
+
+Started GET "/heros/2" for 127.0.0.1 at 2023-03-24 21:47:20 +0300
+Processing by HerosController#show as */*
+  Parameters: {"id"=>"2"}
+  [1m[36mHero Load (0.1ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 2]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hero (2.82ms)
+Completed 200 OK in 5ms (Views: 3.3ms | ActiveRecord: 0.3ms | Allocations: 1725)
+
+
+Started GET "/hero_powers" for 127.0.0.1 at 2023-03-24 21:47:33 +0300
+Processing by HeroPowersController#index as */*
+[active_model_serializers]   [1m[36mHeroPower Load (0.2ms)[0m  [1m[34mSELECT "hero_powers".* FROM "hero_powers"[0m
+[active_model_serializers]   ↳ app/controllers/application_controller.rb:5:in `app_response'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (2.34ms)
+Completed 200 OK in 3ms (Views: 2.7ms | ActiveRecord: 0.2ms | Allocations: 1040)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-24 21:47:53 +0300
+Processing by PowersController#index as */*
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+No serializer found for resource: #<Power id: 1, name: "Speed", description: "I am the fastest human to ever live", created_at: "2023-03-24 18:11:02.118973000 +0000", updated_at: "2023-03-24 18:11:02.118973000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Power::ActiveRecord_Relation (0.28ms)
+Completed 200 OK in 7ms (Views: 6.8ms | ActiveRecord: 0.2ms | Allocations: 920)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-24 21:47:57 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/powers/1"):
+  
+Started POST "/hero_powers" for 127.0.0.1 at 2023-03-24 21:48:44 +0300
+Processing by HeroPowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>1}}
+[31mUnpermitted parameter: :hero_power. Context: { controller: HeroPowersController, action: create, request: #<ActionDispatch::Request:0x00007fbc8c9d83c0>, params: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "controller"=>"hero_powers", "action"=>"create", "hero_power"=>{"strength"=>"Average", "power_id"=>2, "hero_id"=>1}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.12ms)
+Completed 422 Unprocessable Entity in 2ms (Views: 0.9ms | ActiveRecord: 0.0ms | Allocations: 360)
+
+
+Started POST "/powers" for 127.0.0.1 at 2023-03-24 21:49:49 +0300
+Processing by PowersController#create as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "power"=>{}}
+[31mUnpermitted parameters: :strength, :power_id, :hero_id, :power. Context: { controller: PowersController, action: create, request: #<ActionDispatch::Request:0x00007fbc841a72f8>, params: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "controller"=>"powers", "action"=>"create", "power"=>{}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.07ms)
+Completed 200 OK in 2ms (Views: 0.4ms | ActiveRecord: 0.0ms | Allocations: 551)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-24 21:49:53 +0300
+Processing by PowersController#index as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "power"=>{}}
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+No serializer found for resource: #<Power id: 1, name: "Speed", description: "I am the fastest human to ever live", created_at: "2023-03-24 18:11:02.118973000 +0000", updated_at: "2023-03-24 18:11:02.118973000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Power::ActiveRecord_Relation (0.19ms)
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.1ms | Allocations: 921)
+
+
+Started GET "/powers/5" for 127.0.0.1 at 2023-03-24 21:49:58 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/powers/5"):
+  
+Started GET "/powers" for 127.0.0.1 at 2023-03-24 22:10:13 +0300
+Processing by PowersController#index as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "power"=>{}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+No serializer found for resource: #<Power id: 1, name: "Speed", description: "I am the fastest human to ever live", created_at: "2023-03-24 18:11:02.118973000 +0000", updated_at: "2023-03-24 18:11:02.118973000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Power::ActiveRecord_Relation (0.26ms)
+Completed 200 OK in 6ms (Views: 5.5ms | ActiveRecord: 0.5ms | Allocations: 2174)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-24 22:10:16 +0300
+  
+ActionController::RoutingError (No route matches [GET] "/powers/1"):
+  
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-24 22:10:45 +0300
+  [1m[36mActiveRecord::SchemaMigration Pluck (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  
+ActionController::RoutingError (No route matches [GET] "/powers/1"):
+  
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-24 22:11:34 +0300
+Processing by PowersController#show as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "id"=>"1", "power"=>{}}
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Power (0.23ms)
+Completed 200 OK in 24ms (Views: 1.9ms | ActiveRecord: 1.4ms | Allocations: 35245)
+
+
+Started GET "/powers/2" for 127.0.0.1 at 2023-03-24 22:11:39 +0300
+Processing by PowersController#show as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "id"=>"2", "power"=>{}}
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Power (0.13ms)
+Completed 200 OK in 2ms (Views: 0.7ms | ActiveRecord: 0.1ms | Allocations: 630)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-24 22:11:41 +0300
+Processing by PowersController#show as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "id"=>"1", "power"=>{}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Power (0.11ms)
+Completed 200 OK in 2ms (Views: 0.6ms | ActiveRecord: 0.2ms | Allocations: 630)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-24 22:12:15 +0300
+Processing by PowersController#show as */*
+  Parameters: {"strength"=>"Average", "power_id"=>2, "hero_id"=>1, "id"=>"1", "power"=>{}}
+  [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Power (0.18ms)
+Completed 200 OK in 5ms (Views: 1.1ms | ActiveRecord: 1.4ms | Allocations: 2088)
+
+

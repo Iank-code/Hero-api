@@ -16,6 +16,16 @@ class PowersController < ApplicationController
         render json: Power.all, status: :ok, except: [:created_at, :updated_at]
     end
 
+    def show
+        power = Power.find(params[:id])
+
+        if power
+            render json: power, status: 200, except: [:created_at, :updated_at]
+        else
+            render json: {errors: "Power not found"}, status: :not_found
+        end
+    end
+
     private
 
     def power_params
