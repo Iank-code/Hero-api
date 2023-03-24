@@ -16,9 +16,9 @@ class HerosController < ApplicationController
 
     def show
         hero = Hero.find(params[:id])
-
+# include: ["powers"]
         if hero
-            render json: hero, status: 200, include: ["powers"], except: [:created_at, :updated_at]
+            render json: hero, status: 200,serializer: HeroPowerConnectSerializer , except: [:created_at, :updated_at]
         else
             render json: {errors: "Hero not found"}, status: :not_found
         end
