@@ -4,9 +4,9 @@ class HerosController < ApplicationController
         person = Hero.create(hero_params)
 
         if person.valid?
-            render json: person, status: created
+            app_response(status: :created, data: person)
         else
-            render json: {errors: "Failed"}
+            app_response(status: :unprocessable_entity, data: person.errors, message: 'failed')
         end
     end
 
