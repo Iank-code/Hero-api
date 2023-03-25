@@ -146,6 +146,30 @@ existing `Power` and `Hero`. It accepts an object with the following properties;
 
 The `strength` key is anumber by default. Each number represents either `[:STRONG, :WEAK, :AVERAGE]`. **STRONG** is represented by number 0, **WEAK** is represented by number 1, **STROAVERAGENG** is represented by number 2.
 
+If the `HeroPower` is created successfully, send back a response with the data
+related to the `Hero` in the format below
+
+    {
+    "id": 5,
+    "name": "Brandee Lynch",
+    "super_name": "Cable",
+    "powers": [
+        {
+        "id": 3,
+        "name": "Hypnokinesis",
+        "description": "Perferendis maiores earum. Rerum ipsa voluptatem. Vero necessitatibus incidunt.",
+        "created_at": "2023-03-25T04:50:29.654Z",
+        "updated_at": "2023-03-25T04:50:29.654Z"
+        }
+    ]
+    }
+
+If the `HeroPower` is **not** created successfully, it will return the json data with the status code:
+
+    {
+    "errors": ["validation errors"]
+    }
+
 <!-- POST
 
     /hero_powers

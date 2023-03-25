@@ -2,7 +2,7 @@ class HeroPowersController < ApplicationController
     def create
         item = HeroPower.create(hero_power_params)
         if item.valid?
-            render json: item.hero, include: ["powers"]
+            render json: item.hero, include: ["powers"], except: [:created_at, :updated_at]
             # app_response(status: :created, data: item.hero)
         else
             app_response(status: :unprocessable_entity, data: item.errors, message: 'failed')
