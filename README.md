@@ -17,8 +17,8 @@ This is a backend project made by Ruby On Rails. It provides all data belonging 
 
 To be able to use it, you will need to clone it into your machine using the following command.
 
-    git clone git@github.com:Iank-code/Pizza-Api.git
-    cd Pizza-Api
+    git clone git@github.com:Iank-code/Hero-api.git
+    cd Hero-api
     bundle install
     rails db:migrate db:seed
     rails s
@@ -50,7 +50,7 @@ the appropriate HTTP status code:
     "error": "Restaurant not found"
     }
 
-DELETE
+<!-- DELETE
 
     /heros/:id
 
@@ -58,30 +58,29 @@ If the `Hero` exists, it removes it from the database, along with
 any `Power`s that are associated with it.
 
 After deletion, it will return an _empty_ response body, along with the
-appropriate HTTP status code.
+appropriate HTTP status code. -->
 
-If the `Restaurant` does not exist, it returns the following JSON data, along with
+If the `Hero` does not exist, it returns the following JSON data, along with
 the appropriate HTTP status code:
 You can run your Rails API on [`localhost:3000`](http://localhost:3000) by running:
 
 ````
 {
-  "error": "Restaurant not found"
+  "error": "Hero not found"
 }
-```console
-$ rails s
+```
 ````
 
 GET
 
-    /pizzas
+    /powers
 
-Return all the foods.
+Return all the powers.
 :
 
-POST
+<!-- POST
 
-    /restaurant_pizzas
+    /hero_powers
 
 The models should have the following attributes (along with any attributes
 needed to create the relationships defined above):
@@ -98,7 +97,7 @@ to the database.
 {
   "errors": ["validation errors"]
 }
-```
+``` -->
 
 ## LICENCE
 

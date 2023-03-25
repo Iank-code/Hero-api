@@ -3136,3 +3136,264 @@ Processing by HeroPowersController#index as */*
 Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 1.0ms | Allocations: 16416)
 
 
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:04:58 +0300
+Processing by PowersController#index as */*
+  Parameters: {"name"=>"Neema", "major"=>"Fashion and Design", "age"=>26, "instructor_id"=>4, "power"=>{"name"=>"Neema"}}
+  [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.89ms)
+Completed 200 OK in 15ms (Views: 13.4ms | ActiveRecord: 1.1ms | Allocations: 3343)
+
+
+Started GET "/powers/2" for 127.0.0.1 at 2023-03-25 08:05:16 +0300
+Processing by PowersController#show as */*
+  Parameters: {"name"=>"Neema", "major"=>"Fashion and Design", "age"=>26, "instructor_id"=>4, "id"=>"2", "power"=>{"name"=>"Neema"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.43ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.3ms | Allocations: 776)
+
+
+Started GET "/powers/2" for 127.0.0.1 at 2023-03-25 08:06:08 +0300
+Processing by PowersController#show as */*
+  Parameters: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "id"=>"2", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.63ms)
+Completed 200 OK in 5ms (Views: 2.1ms | ActiveRecord: 0.2ms | Allocations: 656)
+
+
+Started PATCH "/powers/2" for 127.0.0.1 at 2023-03-25 08:06:12 +0300
+Processing by PowersController#update as */*
+  Parameters: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "id"=>"2", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:31:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f3ba00a7a70>, params: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "controller"=>"powers", "action"=>"update", "id"=>"2", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}} }[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:34:in `update'
+  [1m[36mPower Update (0.6ms)[0m  [1m[33mUPDATE "powers" SET "name" = ?, "description" = ?, "updated_at" = ? WHERE "powers"."id" = ?[0m  [["name", "Invisibility"], ["description", "With this power, one has the ability to be invinsible anywhere and everywhere"], ["updated_at", "2023-03-25 05:06:12.528250"], ["id", 2]]
+  ↳ app/controllers/powers_controller.rb:34:in `update'
+  [1m[36mTRANSACTION (160.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:34:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TrueClass (0.1ms)
+Completed 200 OK in 175ms (Views: 1.1ms | ActiveRecord: 161.8ms | Allocations: 2735)
+
+
+Started GET "/powers/2" for 127.0.0.1 at 2023-03-25 08:07:08 +0300
+Processing by PowersController#show as */*
+  Parameters: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "id"=>"2", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.26ms)
+Completed 200 OK in 3ms (Views: 0.8ms | ActiveRecord: 0.2ms | Allocations: 655)
+
+
+Started GET "/powers/2" for 127.0.0.1 at 2023-03-25 08:07:09 +0300
+Processing by PowersController#show as */*
+  Parameters: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "id"=>"2", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.31ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 655)
+
+
+Started GET "/powers/2" for 127.0.0.1 at 2023-03-25 08:07:30 +0300
+Processing by PowersController#show as */*
+  Parameters: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "id"=>"2", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.51ms)
+Completed 200 OK in 7ms (Views: 2.1ms | ActiveRecord: 1.5ms | Allocations: 2144)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:07:35 +0300
+Processing by PowersController#index as */*
+  Parameters: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (4.83ms)
+Completed 200 OK in 9ms (Views: 8.3ms | ActiveRecord: 0.3ms | Allocations: 2086)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:07:45 +0300
+Processing by PowersController#show as */*
+  Parameters: {"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere", "id"=>"4", "power"=>{"name"=>"Invisibility", "description"=>"With this power, one has the ability to be invinsible anywhere and everywhere"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 3ms (Views: 1.0ms | ActiveRecord: 0.2ms | Allocations: 656)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:08:14 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.32ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 655)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:08:17 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 4ms (Views: 1.8ms | ActiveRecord: 0.2ms | Allocations: 655)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:08:18 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.29ms)
+Completed 200 OK in 3ms (Views: 0.9ms | ActiveRecord: 0.3ms | Allocations: 655)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:08:35 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 9ms (Views: 1.7ms | ActiveRecord: 3.2ms | Allocations: 2164)
+
+
+Started PATCH "/powers/4" for 127.0.0.1 at 2023-03-25 08:08:45 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:31:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f3b9c1810f8>, params: {"description"=>"One can travel from different time zones", "controller"=>"powers", "action"=>"update", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}} }[0m
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:34:in `update'
+  [1m[36mPower Update (0.9ms)[0m  [1m[33mUPDATE "powers" SET "description" = ?, "updated_at" = ? WHERE "powers"."id" = ?[0m  [["description", "One can travel from different time zones"], ["updated_at", "2023-03-25 05:08:45.218540"], ["id", 4]]
+  ↳ app/controllers/powers_controller.rb:34:in `update'
+  [1m[36mTRANSACTION (63.9ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:34:in `update'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TrueClass (0.06ms)
+Completed 200 OK in 85ms (Views: 0.9ms | ActiveRecord: 65.1ms | Allocations: 2570)
+
+
+Started PUT "/powers/4" for 127.0.0.1 at 2023-03-25 08:08:52 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:31:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f3ba4f29310>, params: {"description"=>"One can travel from different time zones", "controller"=>"powers", "action"=>"update", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TrueClass (0.21ms)
+Completed 200 OK in 9ms (Views: 1.8ms | ActiveRecord: 0.3ms | Allocations: 859)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:08:55 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.33ms)
+Completed 200 OK in 4ms (Views: 1.1ms | ActiveRecord: 0.2ms | Allocations: 657)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:16:18 +0300
+Processing by PowersController#index as */*
+  Parameters: {"description"=>"One can travel from different time zones", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.4ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.56ms)
+Completed 200 OK in 10ms (Views: 9.0ms | ActiveRecord: 0.8ms | Allocations: 3343)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:16:22 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.3ms)
+Completed 200 OK in 4ms (Views: 1.2ms | ActiveRecord: 0.3ms | Allocations: 776)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:17:06 +0300
+Processing by PowersController#index as */*
+  Parameters: {"description"=>"One can travel from different time zones", "power"=>{"description"=>"One can travel from different time zones"}}
+[active_model_serializers]   [1m[36mPower Load (0.5ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+[active_model_serializers]   ↳ app/controllers/application_controller.rb:5:in `app_response'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (13.43ms)
+Completed 200 OK in 15ms (Views: 13.5ms | ActiveRecord: 1.7ms | Allocations: 3401)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:17:12 +0300
+Processing by PowersController#index as */*
+  Parameters: {"description"=>"One can travel from different time zones", "power"=>{"description"=>"One can travel from different time zones"}}
+[active_model_serializers]   [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+[active_model_serializers]   ↳ app/controllers/application_controller.rb:5:in `app_response'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (9.87ms)
+Completed 200 OK in 11ms (Views: 10.4ms | ActiveRecord: 0.2ms | Allocations: 2140)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:17:33 +0300
+  
+SyntaxError (/home/mose/Development/code/Phase 4/Project/Hero-api/app/controllers/powers_controller.rb:17: syntax error, unexpected ',', expecting `end'
+...sponse(status: :ok, data: all), serializer: PowerSerializer
+...                              ^
+):
+  
+app/controllers/powers_controller.rb:17: syntax error, unexpected ',', expecting `end'
+app/controllers/powers_controller.rb:17: syntax error, unexpected ',', expecting `end'
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:18:18 +0300
+Processing by PowersController#index as */*
+  Parameters: {"description"=>"One can travel from different time zones", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.98ms)
+Completed 200 OK in 14ms (Views: 12.3ms | ActiveRecord: 1.3ms | Allocations: 3464)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 08:18:19 +0300
+Processing by PowersController#index as */*
+  Parameters: {"description"=>"One can travel from different time zones", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (2.93ms)
+Completed 200 OK in 10ms (Views: 9.2ms | ActiveRecord: 0.3ms | Allocations: 2060)
+
+
+Started GET "/powers/4" for 127.0.0.1 at 2023-03-25 08:19:09 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.65ms)
+Completed 200 OK in 4ms (Views: 1.3ms | ActiveRecord: 0.2ms | Allocations: 775)
+
+
+Started PUT "/powers/4" for 127.0.0.1 at 2023-03-25 08:19:40 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:31:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f3b9c21bc48>, params: {"description"=>"One can travel from different time zones", "controller"=>"powers", "action"=>"update", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TrueClass (0.11ms)
+Completed 200 OK in 8ms (Views: 1.7ms | ActiveRecord: 0.3ms | Allocations: 1074)
+
+
+Started PUT "/powers/4" for 127.0.0.1 at 2023-03-25 08:19:41 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:31:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f3b9c293b30>, params: {"description"=>"One can travel from different time zones", "controller"=>"powers", "action"=>"update", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TrueClass (0.05ms)
+Completed 200 OK in 5ms (Views: 0.5ms | ActiveRecord: 0.2ms | Allocations: 859)
+
+
+Started PUT "/powers/4" for 127.0.0.1 at 2023-03-25 08:21:09 +0300
+Processing by PowersController#update as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:31:in `update'
+[31mUnpermitted parameters: :id, :power. Context: { controller: PowersController, action: update, request: #<ActionDispatch::Request:0x00007f3b9c2cf5e0>, params: {"description"=>"One can travel from different time zones", "controller"=>"powers", "action"=>"update", "id"=>"4", "power"=>{"description"=>"One can travel from different time zones"}} }[0m
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with TrueClass (0.09ms)
+Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 861)
+
+

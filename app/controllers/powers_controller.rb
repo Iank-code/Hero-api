@@ -13,7 +13,7 @@ class PowersController < ApplicationController
 
 
     def index
-        render json: Power.all, status: :ok, except: [:created_at, :updated_at]
+        render json: Power.all, status: :ok
     end
 
     def show
@@ -21,6 +21,19 @@ class PowersController < ApplicationController
 
         if power
             render json: power, status: 200, except: [:created_at, :updated_at]
+        else
+            render json: {errors: "Power not found"}, status: :not_found
+        end
+    end
+
+
+    def update
+        power = Power.find(params[:id])
+
+        if power
+            result = power.update(power_params)
+            render json: result, status: 200, except: [:created_at, :updated_at]
+
         else
             render json: {errors: "Power not found"}, status: :not_found
         end
