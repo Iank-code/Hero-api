@@ -2,7 +2,8 @@ class HeroPowersController < ApplicationController
     def create
         item = HeroPower.create(hero_power_params)
         if item.valid?
-            app_response(status: :created, data: item)
+            render json: item.hero, include: ["powers"]
+            # app_response(status: :created, data: item.hero)
         else
             app_response(status: :unprocessable_entity, data: item.errors, message: 'failed')
         end

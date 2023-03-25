@@ -131,6 +131,21 @@ it returns the following JSON data, along with status code of `200`:
 }
 ```
 
+POST
+
+    /hero_powers
+
+This route creates a new **HeroPower** that is associated with an
+existing `Power` and `Hero`. It accepts an object with the following properties;
+
+    {
+    "strength": 2,
+    "power_id": 1,
+    "hero_id": 3
+    }
+
+The `strength` key is anumber by default. Each number represents either `[:STRONG, :WEAK, :AVERAGE]`. **STRONG** is represented by number 0, **WEAK** is represented by number 1, **STROAVERAGENG** is represented by number 2.
+
 <!-- POST
 
     /hero_powers
