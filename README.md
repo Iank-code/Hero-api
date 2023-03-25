@@ -146,7 +146,7 @@ existing `Power` and `Hero`. It accepts an object with the following properties;
     "hero_id": 3
     }
 
-The `strength` key is anumber by default. Each number represents either `[:STRONG, :WEAK, :AVERAGE]`. **STRONG** is represented by number 0, **WEAK** is represented by number 1, **AVERAGENG** is represented by number 2.
+The `strength` key is anumber by default. Each number represents either `[:STRONG, :WEAK, :AVERAGE]`. **STRONG** is represented by number 0, **WEAK** is represented by number 1, **AVERAGE** is represented by number 2.
 
 If the `HeroPower` is created successfully, send back a response with the data
 related to the `Hero` in the format below
