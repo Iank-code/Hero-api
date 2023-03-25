@@ -3506,3 +3506,146 @@ Processing by HeroPowersController#create as */*
 Completed 200 OK in 100ms (Views: 5.6ms | ActiveRecord: 60.6ms | Allocations: 12905)
 
 
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 09:57:43 +0300
+Processing by PowersController#index as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "power"=>{}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.57ms)
+Completed 200 OK in 21ms (Views: 19.7ms | ActiveRecord: 0.8ms | Allocations: 3343)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 09:57:57 +0300
+Processing by PowersController#index as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "power"=>{}}
+  [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (3.11ms)
+Completed 200 OK in 10ms (Views: 9.4ms | ActiveRecord: 0.2ms | Allocations: 2060)
+
+
+Started DELETE "/powers/12" for 127.0.0.1 at 2023-03-25 09:58:13 +0300
+Processing by PowersController#destroy as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"12", "power"=>{}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:43:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/powers_controller.rb:45:in `destroy'
+  [1m[36mPower Destroy (0.4ms)[0m  [1m[31mDELETE FROM "powers" WHERE "powers"."id" = ?[0m  [["id", 12]]
+  ↳ app/controllers/powers_controller.rb:45:in `destroy'
+  [1m[36mTRANSACTION (40.8ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/powers_controller.rb:45:in `destroy'
+Completed 204 No Content in 49ms (ActiveRecord: 41.6ms | Allocations: 1868)
+
+
+Started GET "/powers" for 127.0.0.1 at 2023-03-25 09:58:18 +0300
+Processing by PowersController#index as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "power"=>{}}
+  [1m[36mPower Load (0.3ms)[0m  [1m[34mSELECT "powers".* FROM "powers"[0m
+  ↳ app/controllers/powers_controller.rb:16:in `index'
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with ActiveModelSerializers::Adapter::Attributes (1.45ms)
+Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.3ms | Allocations: 1950)
+
+
+Started GET "/heros" for 127.0.0.1 at 2023-03-25 10:08:48 +0300
+Processing by HerosController#index as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "hero"=>{}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heros_controller.rb:14:in `index'
+No serializer found for resource: #<Hero id: 1, name: "Ian", super_name: "Flash", created_at: "2023-03-24 18:10:03.895964000 +0000", updated_at: "2023-03-24 18:10:03.895964000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Hero::ActiveRecord_Relation (1.17ms)
+Completed 200 OK in 9ms (Views: 8.6ms | ActiveRecord: 0.6ms | Allocations: 2718)
+
+
+Started GET "/heros/12" for 127.0.0.1 at 2023-03-25 10:08:55 +0300
+Processing by HerosController#show as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"12", "hero"=>{}}
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 12]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerConnectSerializer with ActiveModelSerializers::Adapter::Attributes (20.86ms)
+Completed 200 OK in 27ms (Views: 21.4ms | ActiveRecord: 0.5ms | Allocations: 9100)
+
+
+Started GET "/heros/11" for 127.0.0.1 at 2023-03-25 10:09:00 +0300
+Processing by HerosController#show as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"11", "hero"=>{}}
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 11]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerConnectSerializer with ActiveModelSerializers::Adapter::Attributes (4.6ms)
+Completed 200 OK in 8ms (Views: 5.2ms | ActiveRecord: 0.5ms | Allocations: 1734)
+
+
+Started GET "/heros/10" for 127.0.0.1 at 2023-03-25 10:09:02 +0300
+Processing by HerosController#show as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"10", "hero"=>{}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 10]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerConnectSerializer with ActiveModelSerializers::Adapter::Attributes (3.61ms)
+Completed 200 OK in 6ms (Views: 4.2ms | ActiveRecord: 0.3ms | Allocations: 1735)
+
+
+Started GET "/heros/9" for 127.0.0.1 at 2023-03-25 10:09:06 +0300
+Processing by HerosController#show as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"9", "hero"=>{}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.1ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 9]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerConnectSerializer with ActiveModelSerializers::Adapter::Attributes (3.25ms)
+Completed 200 OK in 6ms (Views: 3.9ms | ActiveRecord: 0.3ms | Allocations: 1734)
+
+
+Started GET "/heros/8" for 127.0.0.1 at 2023-03-25 10:09:08 +0300
+Processing by HerosController#show as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"8", "hero"=>{}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 8]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerConnectSerializer with ActiveModelSerializers::Adapter::Attributes (7.38ms)
+Completed 200 OK in 10ms (Views: 7.9ms | ActiveRecord: 0.5ms | Allocations: 3110)
+
+
+Started DELETE "/heros/8" for 127.0.0.1 at 2023-03-25 10:09:24 +0300
+Processing by HerosController#destroy as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"8", "hero"=>{}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:28:in `destroy'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[36mbegin transaction[0m
+  ↳ app/controllers/heros_controller.rb:30:in `destroy'
+  [1m[36mHeroPower Load (0.3ms)[0m  [1m[34mSELECT "hero_powers".* FROM "hero_powers" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 8]]
+  ↳ app/controllers/heros_controller.rb:30:in `destroy'
+  [1m[36mHeroPower Destroy (0.7ms)[0m  [1m[31mDELETE FROM "hero_powers" WHERE "hero_powers"."id" = ?[0m  [["id", 10]]
+  ↳ app/controllers/heros_controller.rb:30:in `destroy'
+  [1m[36mHero Destroy (0.2ms)[0m  [1m[31mDELETE FROM "heros" WHERE "heros"."id" = ?[0m  [["id", 8]]
+  ↳ app/controllers/heros_controller.rb:30:in `destroy'
+  [1m[36mTRANSACTION (13.2ms)[0m  [1m[36mcommit transaction[0m
+  ↳ app/controllers/heros_controller.rb:30:in `destroy'
+Completed 204 No Content in 34ms (ActiveRecord: 14.6ms | Allocations: 4555)
+
+
+Started GET "/heros/8" for 127.0.0.1 at 2023-03-25 10:09:29 +0300
+Processing by HerosController#show as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "id"=>"8", "hero"=>{}}
+  [1m[36mHero Load (0.2ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 8], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers] Rendered ActiveModel::Serializer::Null with Hash (0.15ms)
+Completed 422 Unprocessable Entity in 4ms (Views: 1.2ms | ActiveRecord: 0.2ms | Allocations: 635)
+
+
+Started GET "/heros" for 127.0.0.1 at 2023-03-25 10:09:32 +0300
+Processing by HerosController#index as */*
+  Parameters: {"strength"=>2, "power_id"=>3, "hero_id"=>5, "hero"=>{}}
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros"[0m
+  ↳ app/controllers/heros_controller.rb:14:in `index'
+No serializer found for resource: #<Hero id: 1, name: "Ian", super_name: "Flash", created_at: "2023-03-24 18:10:03.895964000 +0000", updated_at: "2023-03-24 18:10:03.895964000 +0000">
+[active_model_serializers] Rendered ActiveModel::Serializer::CollectionSerializer with Hero::ActiveRecord_Relation (1.79ms)
+Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.3ms | Allocations: 1388)
+
+

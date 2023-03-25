@@ -31,6 +31,8 @@ http://127.0.0.1:3000
 
 ## Routes
 
+## Endpoint for Hero
+
 GET
 
     /heros
@@ -64,15 +66,13 @@ the appropriate HTTP status code:
     "error": "Hero not found"
     }
 
-<!-- DELETE
+DELETE
 
     /heros/:id
 
-If the `Hero` exists, it removes it from the database, along with
-any `Power`s that are associated with it.
+Deletes the specified `Hero` and its associated `Power`
 
-After deletion, it will return an _empty_ response body, along with the
-appropriate HTTP status code. -->
+## Endpoint for Power
 
 GET
 
@@ -102,7 +102,7 @@ the appropriate HTTP status code:
 ```
 
 PATCH
-    
+
     /powers/:id
 
 This route updates an existing `Power`. It accepts an object with
@@ -123,13 +123,15 @@ If the `Power` does not exist, return the following JSON data, along with status
 ```
 
 If the `Power` is **not** updated successfully (does not pass validations),
-it returns the following JSON data, along with status code of `200`:
+it returns a json data referring to the validation errors, along with status code of `200`:
 
-```
-{
-  "errors": ["validation errors"]
-}
-```
+DELETE
+
+    /powers/:id
+
+Deletes the specified power
+
+## Endpoint for HeroPowers
 
 POST
 
@@ -164,32 +166,7 @@ related to the `Hero` in the format below
     ]
     }
 
-If the `HeroPower` is **not** created successfully, it will return the json data with the status code:
-
-    {
-    "errors": ["validation errors"]
-    }
-
-<!-- POST
-
-    /hero_powers
-
-The models should have the following attributes (along with any attributes
-needed to create the relationships defined above):
-
-This route creates a new `RestaurantPizza` that is associated with an
-existing `Pizza` and `Restaurant`.
-
-If the `RestaurantPizza` is **not** created successfully, it will return a
-JSON data, along with the appropriate HTTP status code:
-Make sure to define validations for your models so that no bad data can be saved
-to the database.
-
-```
-{
-  "errors": ["validation errors"]
-}
-``` -->
+If the `HeroPower` is **not** created successfully, it returns a json data referring to the validation errors with the status code
 
 ## LICENCE
 

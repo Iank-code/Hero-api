@@ -39,6 +39,14 @@ class PowersController < ApplicationController
         end
     end
 
+    def destroy
+        power = Power.find(params[:id])
+        if power
+            power.destroy
+            head :no_content
+        end
+    end
+
     private
 
     def power_params

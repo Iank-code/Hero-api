@@ -24,6 +24,16 @@ class HerosController < ApplicationController
         end
     end
 
+    def destroy
+        hero = Hero.find(params[:id])
+        if hero
+            hero.destroy
+            head :no_content
+        else
+            render json: {errors: "Hero not found"}, status: :not_found
+        end
+    end
+
     private
 
     def hero_params
