@@ -42,12 +42,26 @@ GET
     /heros/:id
 
 Return the specific `Hero` you want with its associated powers.
+The output will be similar to this
+
+        {
+        "id": 1,
+        "name": "Ian",
+        "super_name": "Flash",
+        "powers": [
+            {
+            "id": 1,
+            "name": "Speed",
+            "description": "I am the fastest human to ever live"
+            }
+        ]
+        }
 
 If the `Hero` does not exist, it returns the following JSON data, along with
 the appropriate HTTP status code:
 
     {
-    "error": "Restaurant not found"
+    "error": "Hero not found"
     }
 
 <!-- DELETE
@@ -60,23 +74,62 @@ any `Power`s that are associated with it.
 After deletion, it will return an _empty_ response body, along with the
 appropriate HTTP status code. -->
 
-If the `Hero` does not exist, it returns the following JSON data, along with
-the appropriate HTTP status code:
-You can run your Rails API on [`localhost:3000`](http://localhost:3000) by running:
-
-````
-{
-  "error": "Hero not found"
-}
-```
-````
-
 GET
 
     /powers
 
 Return all the powers.
-:
+
+Get
+
+    /powers/:id
+
+This returns a specific `power`. The output structure should be similar to this;
+
+        {
+        "id": 1,
+        "name": "Speed",
+        "description": "I am the fastest human to ever live"
+        }
+
+If the `Power` does not exist, return the following JSON data, along with
+the appropriate HTTP status code:
+
+```
+{
+  "error": "Power not found"
+}
+```
+
+PATCH
+    
+    /powers/:id
+
+This route updates an existing `Power`. It accepts an object with
+the following properties in the body of the request:
+
+    {
+    "name": "updated power name",
+    "description": "Updated description"
+    }
+
+If the process is successful, it will return a status code of `200`
+If the `Power` does not exist, return the following JSON data, along with status code of `404`:
+
+```
+{
+  "error": "Power not found"
+}
+```
+
+If the `Power` is **not** updated successfully (does not pass validations),
+it returns the following JSON data, along with status code of `200`:
+
+```
+{
+  "errors": ["validation errors"]
+}
+```
 
 <!-- POST
 

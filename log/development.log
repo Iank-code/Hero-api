@@ -3397,3 +3397,27 @@ Processing by PowersController#update as */*
 Completed 200 OK in 5ms (Views: 0.9ms | ActiveRecord: 0.2ms | Allocations: 861)
 
 
+Started PUT "/heros/1" for 127.0.0.1 at 2023-03-25 08:28:44 +0300
+  
+ActionController::RoutingError (No route matches [PUT] "/heros/1"):
+  
+Started GET "/heros/1" for 127.0.0.1 at 2023-03-25 08:28:49 +0300
+Processing by HerosController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"1", "hero"=>{}}
+  [1m[36mHero Load (0.3ms)[0m  [1m[34mSELECT "heros".* FROM "heros" WHERE "heros"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/heros_controller.rb:18:in `show'
+[active_model_serializers]   [1m[36mPower Load (0.2ms)[0m  [1m[34mSELECT "powers".* FROM "powers" INNER JOIN "hero_powers" ON "powers"."id" = "hero_powers"."power_id" WHERE "hero_powers"."hero_id" = ?[0m  [["hero_id", 1]]
+[active_model_serializers]   ↳ app/controllers/heros_controller.rb:21:in `show'
+[active_model_serializers] Rendered HeroPowerConnectSerializer with ActiveModelSerializers::Adapter::Attributes (14.4ms)
+Completed 200 OK in 24ms (Views: 14.6ms | ActiveRecord: 3.1ms | Allocations: 8017)
+
+
+Started GET "/powers/1" for 127.0.0.1 at 2023-03-25 08:35:59 +0300
+Processing by PowersController#show as */*
+  Parameters: {"description"=>"One can travel from different time zones", "id"=>"1", "power"=>{"description"=>"One can travel from different time zones"}}
+  [1m[36mPower Load (0.6ms)[0m  [1m[34mSELECT "powers".* FROM "powers" WHERE "powers"."id" = ? LIMIT ?[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/powers_controller.rb:20:in `show'
+[active_model_serializers] Rendered PowerSerializer with ActiveModelSerializers::Adapter::Attributes (0.49ms)
+Completed 200 OK in 7ms (Views: 1.9ms | ActiveRecord: 1.4ms | Allocations: 795)
+
+
