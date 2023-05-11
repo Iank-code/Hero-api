@@ -1,4 +1,4 @@
-# Restaurant Api
+# Hero Api
 
 This is a backend project made by Ruby On Rails. It provides all data belonging to `Hero`, `Power` and its joining table `Hero_Power`
 
